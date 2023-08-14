@@ -12,5 +12,21 @@ public class IndexController {
 		return "index";
 	}
 	
+	@GetMapping("/shop")
+	public String getShop() {
+		
+		return "shop";
+	}
+	
+	@GetMapping("/aboutus")
+	public String getAboutUs() {
+		return "about-us";
+	}
+	
+	@GetMapping("/contactus")
+	public String getContactUs() {
+		return "contact";
+	}
+	
 	
 }

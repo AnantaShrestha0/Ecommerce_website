@@ -61,7 +61,8 @@
                     <div class="axil-signin-form">
                         <h3 class="title">Sign in to eTrade.</h3>
                         <p class="b2 mb--55">Enter your detail below</p>
-                        <form class="singin-form">
+                        <p style="color: red" th:text="${Error}"></p>
+                        <form action="/user/signin" method="post" class="singin-form">
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter your email">
