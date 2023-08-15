@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+    
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: block;
+    max-width: 500px;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.product-titleko{
+    width: 20%;
+}
+.product-pricelo{
+text-align: center;
+}
+</style>
+</head>
+<body>
+
+<th:block th:insert="admin-header"></th:block>
+
+ <!-- Start Cart Area  -->
+        <div class="axil-product-cart-area axil-section-gap">
+            <div class="container">
+                <div class="axil-product-cart-wrap">
+                    <div class="product-table-heading">
+                        <h4 class="title">Product List</h4>
+                     
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table axil-product-table axil-cart-table mb--40">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="product-pricelo">SN</th>
+                                    <th scope="col" class="product-thumbnail">Product</th>
+                                    <th scope="col" class="product-titleko"></th>
+                                    <th scope="col" class="product-pricelo">Category</th>
+                                    <th scope="col" class="product-pricelo">Price</th>
+                                    <th scope="col" class="product-pricelo">Stock</th>
+                                    <th scope="col" class="product-subtotal" style="padding-right: 100px">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="product : ${productList}">
+                                    <td class="product-pricelo" th:text="${product.id}"></td>
+                                    <td class="product-thumbnail"><a><img th:src="@{/images/products/__${product.image}__}" width="100" height="100" alt="Employee Image"  th:onclick="openModal(this.src)"></a></td>
+                                    <td class="product-titleko" th:text="${product.name}"></td>
+                                    <td class="product-pricelo" data-title="Price" th:text="${product.category}"></td>
+                                    <td class="product-pricelo" data-title="Price" th:text="${product.currentPrice}"><span class="currency-symbol">$</span></td>
+                                    <td class="product-pricelo" data-title="Price" th:text="${product.stock}"><span class="currency-symbol">$</span></td>
+                                   <!-- <td class="product-quantity" data-title="Qty" th:text="${product.stock}">
+                                          <div class="pro-qty">
+                                            <input type="number" class="quantity-input" value="1">
+                                        
+                                    </td>-->
+                                    <td class="product-subtotal" data-title="Subtotal"> <a th:href="@{/removeProduct(id=${product.id})}"
+                 class="axil-btn btn-bg-secondary sign-up-btn">Remove</a></td>
+                                </tr>
+                                
+                                        </tbody>
+                                    </table>
+                               
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                       <th:block th:insert="admin-footer"></th:block>
+           
+        <!-- End Cart Area  -->
+        <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Employee Image">
+       </div>
+    
+    
+     <script type="text/javascript">
+   function openModal(src) {
+	    var modal = document.getElementById("myModal");
+	    var modalImage = document.getElementById("modalImage");
+	    modal.style.display = "block";
+	    modalImage.src = src;
+	}
+
+	// Close the modal when the "X" (close) button is clicked
+	function closeModal() {
+	    var modal = document.getElementById("myModal");
+	    modal.style.display = "none";
+	}
+	
+   </script>
+</body>
+</html>

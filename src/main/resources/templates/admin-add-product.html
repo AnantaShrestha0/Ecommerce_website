@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<style>
+.imagediv{
+margin-bottom: 17px;
+}
+</style>
+
+<body>
+<th:block th:insert="admin-header"></th:block>
+
+
+ <main class="main-wrapper">
+
+<!-- Start Checkout Area  -->
+        <div class="axil-checkout-area axil-section-gap">
+            <div class="container">
+                <form action="/addProduct" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6">
+      
+                            <div class="axil-checkout-billing">
+                                <h4 class="title mb--40">Add Product</h4>
+                               <!--  <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>First Name <span>*</span></label>
+                                            <input type="text" id="first-name" placeholder="Adam">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Last Name <span>*</span></label>
+                                            <input type="text" id="last-name" placeholder="John">
+                                        </div>
+                                    </div>
+                                </div>-->
+                                 <p style="color: blue; margin-top: 2px;" th:text="${message}"></p>
+                                <div class="form-group">
+                                    <label>Product Name<span>*</span></label>
+                                    <input type="text" name="name" id="company-name" required="required" placeholder="Product Name">
+                                </div>
+                                 <div class="toggle-open">
+                                        <div class="form-group">
+                                            <label>Category<span>*</span></label>
+                                            <select name="categoryId" id="Region">
+                                                <option value="">Select</option>
+                                                <option th:unless="${categoryList}" value="">Server Down No Doctors Found</option>
+							                    <option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.name}" ></option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                         <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>New Price<span>*</span></label>
+                                            <input type="text" name="currentPrice" id="first-name" placeholder="New Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Old Price<span>*</span></label>
+                                            <input type="text" name="oldPrice" id="last-name" placeholder="Old Price">
+                                        </div>
+                                    </div>
+                                </div> 
+                                
+                                
+                                  <div class="imagediv">
+                                    <input type="file" name="img" id="company-name" required="required" placeholder="Image">
+                               </div>
+                                  
+                                   <!--  <input type="file" id="company-name">-->
+                                   
+                                <div class="form-group">
+                                    <label>Description<span>*</span></label>
+                                    <input type="text" name="description" id="company-name" required="required" placeholder="Description">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Stock<span>*</span></label>
+                                    <input type="number" name="stock" id="company-name" required="required" placeholder="Stock">
+                                </div>
+                                
+                                
+                               
+                            </div>
+                        </div>
+                                  <div class="col-sm-8">
+                    <div class="singin-header-btn">
+                        <p></p>
+                        <input type="submit" class="axil-btn btn-bg-secondary sign-up-btn" value="Add Category">
+                       
+                    </div>
+                </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End Checkout Area  -->
+
+    </main>
+
+
+
+<th:block th:insert="admin-footer"></th:block>
+
+</body>
+</html>

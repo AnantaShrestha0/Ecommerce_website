@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+    
+
+.product-titleko{
+    width: 20%;
+}
+.product-pricelo{
+text-align: center;
+}
+</style>
+</head>
+<body>
+
+<th:block th:insert="admin-header"></th:block>
+
+ <!-- Start Cart Area  -->
+        <div class="axil-product-cart-area axil-section-gap">
+            <div class="container">
+                <div class="axil-product-cart-wrap">
+                    <div class="product-table-heading">
+                        <h4 class="title">Your Cart</h4>
+                        <a href="#" class="cart-clear">Clear Shoping Cart</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table axil-product-table axil-cart-table mb--40">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="product-remove">SN</th>
+                               
+                                    <th scope="col" class="product-pricelo">Category Name</th>
+                                  
+                                    <th scope="col" class="product-subtotal" style="padding-right: 100px">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="category : ${categoryList}">
+                                    <td class="product-remove" th:text="${category.id}"></td>
+                                
+                                    <td class="product-pricelo" data-title="Price" th:text="${category.name}"><span class="currency-symbol">$</span></td>
+                                    
+                                    
+                                    <td class="product-subtotal" data-title="Subtotal">  <a th:href="@{/deleteCategory(id=${category.id})}"
+                         class="axil-btn btn-bg-secondary sign-up-btn">Remove</a></td>
+                                </tr>
+                                
+                               </tbody>
+                             </table>
+                               
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                       <th:block th:insert="admin-footer"></th:block>
+           
+        <!-- End Cart Area  -->
+       
+    
+    
+  
+</body>
+</html>

@@ -7,17 +7,13 @@ import lombok.Data;
 
 @Data
 @Entity
-public class ProductModel {
+public class CategoryModel {
 
+	
 	@Id
 	@GeneratedValue
 	private int id;
 	private String name;
-	private String currentPrice;
-	private String oldPrice;
-	private String image;
-	private String stock;
-	private int categoryId;
-	private String category;
+	
 	
 }
