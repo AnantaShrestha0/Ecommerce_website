@@ -8,5 +8,6 @@ public interface UserService {
 	void addUser(UserModel userModel);
 	UserModel findUser(String email,String password);
 	UserModel findUserByEmail(String email);
+	UserModel findById(int id);
 	
 }

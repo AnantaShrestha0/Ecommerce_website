@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.box.ecommerce_website.model.UserModel;
 import com.box.ecommerce_website.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -34,7 +36,7 @@ public class UserController {
 	
 	
 	@PostMapping("/signin")
-	public String postSignIn(UserModel userModel,Model model) {
+	public String postSignIn(UserModel userModel,Model model,HttpSession httpSession) {
 		String username=userModel.getEmail();
 		String password=userModel.getPassword();
 		UserModel user=userService.findUser(username, password);
@@ -42,8 +44,10 @@ public class UserController {
 			model.addAttribute("Error","username and password not found");
 			return "signin";
 		}
+		httpSession.setAttribute("validUser", user);
+        httpSession.setMaxInactiveInterval(-1);
 		
-		return "homepage";
+		return "redirect:/userHomepage";
 	}
 	
 	

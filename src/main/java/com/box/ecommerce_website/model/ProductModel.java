@@ -13,8 +13,8 @@ public class ProductModel {
 	@GeneratedValue
 	private int id;
 	private String name;
-	private String currentPrice;
-	private String oldPrice;
+	private int currentPrice;
+	private int oldPrice;
 	private String image;
 	private String stock;
 	private int categoryId;

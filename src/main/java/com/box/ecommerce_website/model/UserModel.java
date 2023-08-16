@@ -19,5 +19,6 @@ public class UserModel {
 	private String password;
 	@Transient
 	private String confirmPassword;
+	private int cartitems;
 	
 }

@@ -32,4 +32,10 @@ public class UserSeriveImpl implements UserService{
 		return userRepo.findByEmail(email);
 	}
 
+	@Override
+	public UserModel findById(int id) {
+		// TODO Auto-generated method stub
+		return userRepo.findById(id).get();
+	}
+
 }

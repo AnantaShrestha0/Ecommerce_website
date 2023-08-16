@@ -11,4 +11,5 @@ public interface ProductService {
 	void deleteProductById(int id);
 	ProductModel getProductById(int id);
 	List<ProductModel> getAllProduct();
+	ProductModel findById(int id);
 }
